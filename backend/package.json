@@ -1,0 +1,11 @@
+{
+  "name": "regrip",
+  "version": "1.0.0",
+  "description": "\"Interview Assignment backend\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Divy Deshmukh",
+  "license": "ISC"
+}
