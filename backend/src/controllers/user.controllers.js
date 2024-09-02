@@ -140,11 +140,25 @@ const logout = asyncHandler(async (req, res) => {
 });
 
 const fetchUserData = asyncHandler(async(req, res) => {
+    console.log("fetchData");
+    
+    const summaryData = [
+        { id: 1, value: 220, label: "Total Vehicles" },
+        { id: 2, value: 456, label: "Total Tyres" },
+        { id: 3, value: 345, label: "Tyres on Wheel" },
+        { id: 4, value: 276, label: "Available Stock" },
+        { id: 5, value: 179, label: "Total Scrap" },
+        { id: 6, value: 225, label: "Claim Tyres" },
+        { id: 7, value: 156, label: "Sent to Retread" },
+        { id: 8, value: 314, label: "New Tyres" },
+        { id: 9, value: 234, label: "Reusable Tyres" }
+      ];
     return res.status(200)
               .json(new ApiResponse(
                 200,
                 {
                     userData: req.user,
+                    summaryData,
                     "recentActivities": [
                       {
                         "id": 101,
