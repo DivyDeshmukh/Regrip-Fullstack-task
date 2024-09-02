@@ -8,7 +8,6 @@ import Search from "../Search";
 
 function Header() {
   const authStatus = useSelector((state) => state.auth.authStatus);
-  const userData = useSelector((state) => state.auth.userData);
 
   const navItems = [
     {

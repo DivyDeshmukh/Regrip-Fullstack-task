@@ -91,7 +91,7 @@ const login = asyncHandler(async (req, res) => {
     }
 
     const {accessToken, refreshToken} = await generateAccessRefreshTokens(isUserExist?.id);
-    console.log(accessToken, refreshToken);
+    // console.log(accessToken, refreshToken);
 
     const loggedInUser = await User.findOne({
         where: { id: isUserExist.id },
@@ -140,7 +140,7 @@ const logout = asyncHandler(async (req, res) => {
 });
 
 const fetchUserData = asyncHandler(async(req, res) => {
-    console.log("fetchData");
+    // console.log("fetchData");
     
     const summaryData = [
         { id: 1, value: 220, label: "Total Vehicles" },

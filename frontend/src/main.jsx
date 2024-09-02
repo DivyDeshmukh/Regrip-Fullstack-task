@@ -1,15 +1,16 @@
+import React, { lazy, Suspense } from 'react';
 import { createRoot } from 'react-dom/client'
-import App from './App.jsx'
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
-import LoginPage from "./pages/LoginPage.jsx";
-import SignupPage from "./pages/SignupPage.jsx";
-import DashboardPage from "./pages/DashboardPage.jsx";
 import {Provider} from "react-redux";
 import store from './store/store.js';
 import "./index.css";
-import LandingPage from './pages/LandingPage.jsx';
-import AuthProtected from './components/AuthProtected.jsx';
-import { ToastContainer } from 'react-toastify';
+
+const App = lazy(() => import ('./App.jsx'));
+const AuthProtected = lazy(() => import("./components/AuthProtected.jsx"));
+const LandingPage = lazy(() => import("./pages/LandingPage.jsx"));
+const LoginPage = lazy(() => import("./pages/LoginPage.jsx"));
+const SignupPage = lazy(() => import("./pages/SignupPage.jsx"));
+const DashboardPage = lazy(() => import("./pages/DashboardPage.jsx"));
 
 const router = createBrowserRouter([
     {
@@ -40,9 +41,11 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <Provider store={store}>
-    <RouterProvider router={router}>
-      <App />
-    </RouterProvider>
+    <Suspense fallback={<div>Loading...</div>}>
+      <RouterProvider router={router}>
+        <App />
+      </RouterProvider>
+    </Suspense>
   </Provider>
 );
 

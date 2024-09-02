@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import {useDispatch} from "react-redux";
 import {logout} from "../../features/authSlice";
 import api from '../../api/api';
+import {toast} from "react-toastify";
 
 function LogoutBtn({children, className}) {
 
@@ -17,7 +18,7 @@ function LogoutBtn({children, className}) {
             navigate("/login");
           }
       } catch (error) {
-          
+          toast.error("Failed to logout the user");
       }
     }
 
