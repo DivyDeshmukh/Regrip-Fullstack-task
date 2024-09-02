@@ -12,7 +12,6 @@ function LogoutBtn({children, className}) {
     const handleClick = async() => {
       try {
           const response = await api.get("/logout");
-          console.log(response);
           if (response) {
             dispatch(logout());
             navigate("/login");

@@ -19,7 +19,6 @@ function LoginForm() {
       const response = await api.post("/login", data, {
         withCredentials: true
       });
-      console.log(response.data.data.loggedInUser);
       if (response) {
         dispatch(loginAction(response.data.data.loggedInUser));
         toast.success("User Logged In successfully");

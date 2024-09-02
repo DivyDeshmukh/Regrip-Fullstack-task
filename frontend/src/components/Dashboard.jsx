@@ -9,7 +9,6 @@ function Dashboard() {
       const response = await api.get("/userdata", {
         withCredentials: true
       });
-      console.log("Dashboard Data: ", response.data.data.summaryData);
       if (response) {
         setUserdata (response.data.data);
       }
